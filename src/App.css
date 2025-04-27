@@ -1,0 +1,134 @@
+/* RESET MINIMAL ----------------------------------------------------------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+body { margin: 0; font-family: ui-sans-serif, system-ui, sans-serif; }
+
+/* GALERIE ----------------------------------------------------------------- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+/* CARTE ------------------------------------------------------------------- */
+.card {
+  border: 1px solid #e5e7eb;           /* gray-200 */
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,.06);
+  height: 240px;                       /* même hauteur partout */
+  display: flex;
+  flex-direction: column;
+}
+
+/* miniature (image) */
+.card img {
+  width: 100%;
+  height: 180px;                       /* hauteur uniforme  */
+  object-fit: cover;                   /* rogner proprement */
+}
+
+/* icône “autre fichier” */
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 180px;
+  font-size: 3rem;
+}
+
+/* nom du fichier */
+.filename {
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* bouton corbeille -------------------------------------------------------- */
+.delete-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  border-radius: 9999px;
+  background: #dc2626;                 /* rouge-600 */
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(.8);
+  transition: opacity .12s ease, transform .12s ease;
+}
+.group:hover .delete-btn {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* lightbox plein écran ---------------------------------------------------- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.8);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+  z-index: 50;
+}
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.5);
+}
+
+/* ===== carte individuelle ===== */
+.card {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,.06);
+}
+.card img,
+.placeholder { width: 180px; height: 180px; object-fit: cover; }
+
+.filename {
+  max-width: 180px;
+  font-size: .75rem;
+  text-align: center;
+  padding: .25rem .5rem 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ===== bouton corbeille ===== */
+.delete-btn {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  font-size: 1rem;
+  background: #ef4444;          /* red-500 */
+  color: #fff;
+  border-radius: 9999px;
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  transform: scale(0);          /* invisible par défaut */
+  transition: transform .15s;
+}
+.group:hover .delete-btn { transform: scale(1); } /* apparaît au survol */
+
+   
+
