@@ -1,6 +1,7 @@
 // src/pages/UploadToEvent.tsx
-import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+
+import {useState} from "react";
+import { useParams }   from "react-router-dom";
 import supabase from "../supabaseClient";
 
 /* ------------------------------------------------------------------

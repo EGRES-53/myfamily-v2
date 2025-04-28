@@ -1,26 +1,39 @@
 {
   "compilerOptions": {
+    /* ▶️  sortie build/info interne pour TS */
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-    "target": "ES2020",
-    "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
-    "skipLibCheck": true,
 
-    /* Bundler mode */
+    /* ▶️  langue / cible */
+    "target": "ES2020",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+
+    /* ▶️  ergonomie moderne */
+    "useDefineForClassFields": true,
+
+    /* ▶️  module + JSX pour Vite/React */
+    "module": "ESNext",
     "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "isolatedModules": true,
-    "moduleDetection": "force",
-    "noEmit": true,
     "jsx": "react-jsx",
 
-    /* Linting */
+    /* ▶️  vérifications */
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+
+    /* ▶️  lint-style stricte */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedIndexedAccess": true,
+
+    /* ▶️  n’émet pas de .js (c’est Vite qui compile) */
+    "noEmit": true,
+
+    /* ▶️  permet d’importer « .ts »/« .tsx » sans extension */
+    "allowImportingTsExtensions": true
   },
+
+  /* Dossier concerné */
   "include": ["src"]
 }
