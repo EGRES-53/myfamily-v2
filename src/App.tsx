@@ -1,20 +1,26 @@
 // src/App.tsx
-import { Routes, Route, Navigate } from "react-router-dom";
-import UploadToEvent from "./pages/UploadToEvent";
-import FileListForEvent from "./pages/FileListForEvent";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import EventListPage      from "./pages/EventListPage";
+import UploadToEvent      from "./pages/UploadToEvent";
+import FileListForEvent   from "./pages/FileListForEvent";
 import "./App.css";
 
 export default function App() {
   return (
-    <Routes>
-      {/* téléversement de fichiers */}
-      <Route path="/event/:eventId/upload" element={<UploadToEvent />} />
+    <BrowserRouter>
+      <Routes>
+        {/* page d’accueil */}
+        <Route path="/" element={<EventListPage />} />
 
-      {/* liste des fichiers */}
-      <Route path="/event/:eventId/files" element={<FileListForEvent />} />
+        {/* téléversement */}
+        <Route path="/event/:eventId/upload" element={<UploadToEvent />} />
 
-      {/* redirige toute autre URL vers /event/1234/upload (exemple) */}
-      <Route path="*" element={<Navigate to="/event/1234/upload" replace />} />
-    </Routes>
+        {/* galerie */}
+        <Route path="/event/:eventId/files" element={<FileListForEvent />} />
+
+        {/* toute autre URL → page d’accueil */}
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
